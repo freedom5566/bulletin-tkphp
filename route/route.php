@@ -15,9 +15,14 @@ Route::get('think', function () {
 
 Route::get('hello/:name', 'index/hello');
 
+Route::get("home","index/home/index");
+//Route::get("insert","index/home/insert");
+
 
 Route::get("test","index/home/test");
 Route::get("hh","index/home/hh");
+Route::get("tea","index/home/tea");
+
 
 return [
 

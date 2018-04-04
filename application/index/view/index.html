@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>公告</title>
+</head>
+
+<body>
+    <div>
+        <h1>
+            <center>公告系統</center>
+        </h1>
+        <div >
+            <form method="POST" action="index/home/insert">
+                <center>請輸入標題:<br/><br/>   
+                    <input class="title" name="title" placeholder="今天的標題是甚麼呢？" required>
+                </center>
+                <center>您是誰:<br/><br/>
+                    <input class="author"  name="author"placeholder="請輸入大名" required>
+                </center>
+                <center>今天要說些甚麼呢<br/><br/> 
+                    <textarea name="message" rows="7" cols="50" class="article">
+                </textarea>
+                </center>
+                <center>
+                    <button type="submit" value="Submit" >送出</button>
+                    <button type="reset" value="Reset">清除</button>
+
+                </center>
+            </form>
+            <p>{$Request.post.title}</p>
+            
+        </div>
+    </div>
+</body>
+
+</html>
