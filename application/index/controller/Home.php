@@ -3,6 +3,7 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Request;
+use Think\Model;
 
 class Home extends Controller
 {
@@ -47,5 +48,12 @@ class Home extends Controller
         if($data) return $data["author"];
         else return "哎呀甚麼也沒有咧~~";
         
+    }
+    public function mm()
+    {
+        $test=new \app\index\model\Bulletin();
+        $tss=$test::where('id', 2)->find();
+        //$test->author="124";
+        print_r($tss);
     }
 }

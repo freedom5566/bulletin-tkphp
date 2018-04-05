@@ -4,6 +4,8 @@ namespace service;
 
 use think\Db;
 
+
+//輔助controller用service
 class Dbsql
 {   
     //單一查詢

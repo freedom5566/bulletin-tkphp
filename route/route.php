@@ -22,6 +22,8 @@ Route::get("home","index/home/index");
 Route::get("test","index/home/test");
 Route::get("hh","index/home/hh");
 Route::get("tea","index/home/tea");
+Route::get("mm","index/home/mm");
+
 
 
 return [
