@@ -11,6 +11,6 @@ class Bulletin extends Model
     //內文
     protected $article;
     //作者
-    protected $author;
+    //protected $author;
 
 }

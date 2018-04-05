@@ -3,7 +3,7 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Request;
-use Think\Model;
+use app\index\model\Bulletin;
 
 class Home extends Controller
 {
@@ -13,9 +13,31 @@ class Home extends Controller
         return $this->fetch("/index");;
 
     }
+
     public function insert(Request $request)
     {
-        return $request->param('title');;
+        if($request->param()??0)
+        {
+            $data=[
+                "title"=>$request->post('title'),
+                "author"=>$request->post("author"),
+                "article"=>$request->post("message")
+            ];
+            $res=(new \service\Dbsql())->sql_insert("bulletin",$data);
+            if($res??0)
+            {
+                $this->success("新增成功","http://127.0.0.1:8080/home");
+            }
+            else
+            {
+                $this->error("新增失敗！！");
+            }
+
+        }
+        else
+        {
+            $this->redirect("http://127.0.0.1:8080/home",404);
+        }
     }
     
     public function test()
@@ -37,23 +59,23 @@ class Home extends Controller
     }
     public function Tea()
     {
-        $Test= new \service\Dbsql();
+        $Test= (new \service\Dbsql())->sql_find("bulletin","id",5);
         // $data=[
         //     "title"=>123,
         //     "author"=>123,
         //     "article"=>5566
         // ];
-        $data=$Test->sql_find("bulletin","id",2);
+        //$data=$Test->sql_find("bulletin","id",2);
         //$data=$Test->sql_insert("bulletin",$data);
-        if($data) return $data["author"];
+        if($Test) return $Test["author"];
         else return "哎呀甚麼也沒有咧~~";
         
     }
     public function mm()
     {
-        $test=new \app\index\model\Bulletin();
+        $test=new Bulletin();
         $tss=$test::where('id', 2)->find();
         //$test->author="124";
-        print_r($tss);
+        print_r($tss->author);
     }
 }
