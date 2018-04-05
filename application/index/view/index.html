@@ -13,28 +13,53 @@
         <h1>
             <center>公告系統</center>
         </h1>
-        <div >
-            <form method="POST" action="index/home/insert">
-                <center>請輸入標題:<br/><br/>   
-                    <input class="title" name="title" placeholder="今天的標題是甚麼呢？" required>
+        <div>
+            <form method="POST" action="index/home/insert" onsubmit="return validateForm()">
+                <center>請輸入標題:
+                    <br/>
+                    <br/>
+                    <input name="title" id="title" placeholder="今天的標題是甚麼呢？">
                 </center>
-                <center>您是誰:<br/><br/>
-                    <input class="author"  name="author"placeholder="請輸入大名" required>
+                <center>您是誰:
+                    <br/>
+                    <br/>
+                    <input name="author" placeholder="請輸入大名" required>
                 </center>
-                <center>今天要說些甚麼呢<br/><br/> 
-                    <textarea name="message" rows="7" cols="50" class="article">
+                <center>今天要說些甚麼呢
+                    <br/>
+                    <br/>
+                    <textarea name="message" id="message" rows="7" cols="50">
                 </textarea>
                 </center>
                 <center>
-                    <button type="submit" value="Submit" >送出</button>
+                    <button type="submit" value="Submit">送出</button>
                     <button type="reset" value="Reset">清除</button>
 
                 </center>
             </form>
-            <p>{$Request.post.title}</p>
-            
+
+
         </div>
     </div>
 </body>
+<script>
+    function validateForm() {
+        
+        if (document.getElementById("title").value === "") {
+            alert("請輸入標題");
+            return false;
+        }
+        else if (trimfield(document.getElementById("message").value) === "") {
+            alert("請輸入內文");
+            return false;
+        }
+    
+
+    };
+    function trimfield(str) {
+        //避免textarea空白問題
+        return str.replace(/^\s+|\s+$/g, '');
+    };
+</script>
 
 </html>
