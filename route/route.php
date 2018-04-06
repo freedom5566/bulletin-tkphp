@@ -10,11 +10,10 @@
 // +----------------------------------------------------------------------
 
 
-
+Route::get("select","index/home/select");//查看頁面
 Route::get("insert","index/home/insert");//新增頁面
-//Route::get("insert","index/home/insert");
-Route::get("update","index/home/update");
-Route::get("delete","index/home/delete");
+Route::get("update","index/home/update");//修改頁面
+Route::get("delete","index/home/delete");//刪除頁面
 
 
 

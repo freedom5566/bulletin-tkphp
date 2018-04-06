@@ -7,6 +7,20 @@ use app\index\model\Bulletin;
 
 class Home extends Controller
 {
+    public function select()
+    {
+        $res=(new \service\Dbsql())->sql_selectall("bulletin");
+        if($res??0)
+        {
+            $this->assign("data",$res);
+            return $this->fetch("/select");
+        }
+        else
+        {
+            $this->error("目前沒有公告，快去新增！","http://127.0.0.1:8080/insert");
+        }
+        
+    }
     public function insert()
     {
 

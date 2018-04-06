@@ -8,6 +8,17 @@ use think\Db;
 //輔助controller用service
 class Dbsql
 {   
+    
+    //全部查詢
+    //回傳陣列
+    //$table=資料表
+    //$where=欄位
+    //$search=搜尋欄位值
+    public function sql_selectall($table)
+    {
+        $res=Db::table($table)->select();
+        return $res;
+    }
     //單一查詢
     //回傳單一陣列
     //$table=資料表
