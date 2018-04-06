@@ -9,15 +9,11 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
-Route::get('think', function () {
-    return 'hello,ThinkPHP5!';
-});
 
-Route::get('hello/:name', 'index/hello');
 
-Route::get("home","index/home/index");
+Route::get("insert","index/home/insert");//新增頁面
 //Route::get("insert","index/home/insert");
-
+Route::get("update","index/home/update");
 
 Route::get("test","index/home/test");
 Route::get("hh","index/home/hh");

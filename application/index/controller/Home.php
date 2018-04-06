@@ -7,14 +7,14 @@ use app\index\model\Bulletin;
 
 class Home extends Controller
 {
-    public function index()
+    public function insert()
     {
 
-        return $this->fetch("/index");;
+        return $this->fetch("/insert");;
 
     }
 
-    public function insert(Request $request)
+    public function insertreq(Request $request)
     {
         if($request->param()??0)
         {
@@ -26,7 +26,7 @@ class Home extends Controller
             $res=(new \service\Dbsql())->sql_insert("bulletin",$data);
             if($res??0)
             {
-                $this->success("新增成功","http://127.0.0.1:8080/home");
+                $this->success("新增成功","http://127.0.0.1:8080/insert");
             }
             else
             {
@@ -36,10 +36,37 @@ class Home extends Controller
         }
         else
         {
-            $this->redirect("http://127.0.0.1:8080/home",404);
+            $this->redirect("http://127.0.0.1:8080/insert",404);
         }
     }
-    
+    public function update()
+    {
+        return $this->fetch("/update");
+    }
+    public function updatereq(Request $request)
+    {
+        if($request->param()??0)
+        {
+            $data=[
+                "title"=>$request->post('title'),
+                "article"=>$request->post("message")
+            ];
+            $res=(new \service\Dbsql())->sql_update("bulletin","author",$request->post("author"),$data);
+         
+            if($res??0)
+            {
+                $this->success("新增成功","http://127.0.0.1:8080/update");
+            }
+            else
+            {
+                $this->error("新增失敗！！");
+            }
+        }
+        else
+        {
+            $this->redirect("http://127.0.0.1:8080/update",404);            
+        }
+    }
     public function test()
     {
         // $data = ['id'=>1,'user' => '清潔', 'message' => 'xd','date'=>'2018-03-08'];

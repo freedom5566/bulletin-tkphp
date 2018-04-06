@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>修改公告</title>
+</head>
+
+<body>
+    <div>
+        {include file="menu"/}
+        <h1>
+            <center>修改公告</center>
+        </h1>
+        <div>
+            <form method="POST" action="index/home/updatereq" onsubmit="return validateForm()">
+                <center>請輸入作者:
+                    <br/>
+                    <br/>
+                    <input name="author" placeholder="作者名稱" required>
+                </center>
+                <center>輸入新的標題:
+                    <br/>
+                    <br/>
+                    <input name="title"  id="title" placeholder="標題">
+                </center>
+                <center>輸入新的內文:
+                    <br/>
+                    <br/>
+                    <textarea name="message" id="message" rows="7" cols="50">
+                </textarea>
+                </center>
+                <center>
+                    <button type="submit" value="Submit">送出</button>
+                    <button type="reset" value="Reset">清除</button>
+
+                </center>
+            </form>
+
+
+        </div>
+    </div>
+</body>
+<script>
+    function validateForm() {
+
+        if (document.getElementById("title").value === "") {
+            alert("請輸入標題");
+            return false;
+        }
+        else if (trimfield(document.getElementById("message").value) === "") {
+            alert("請輸入內文");
+            return false;
+        }
+
+
+    };
+    function trimfield(str) {
+        //避免textarea空白問題
+        return str.replace(/^\s+|\s+$/g, '');
+    };
+</script>
+
+</html>
