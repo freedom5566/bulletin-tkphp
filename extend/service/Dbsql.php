@@ -69,4 +69,13 @@ class Dbsql
          $res=Db::name($table)->where($where,$req,$search)->delete();;
          return $res;
      }
+
+     //條件刪除資料，成功返回影響條數，否則返回0
+     //$table=資料表
+     //$where=陣列表達式
+     public function sql_deletearray($table,$where)
+     {
+         $res=Db::name($table)->where($where)->delete();;
+         return $res;
+     }
 }

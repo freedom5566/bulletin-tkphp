@@ -14,11 +14,8 @@
 Route::get("insert","index/home/insert");//新增頁面
 //Route::get("insert","index/home/insert");
 Route::get("update","index/home/update");
+Route::get("delete","index/home/delete");
 
-Route::get("test","index/home/test");
-Route::get("hh","index/home/hh");
-Route::get("tea","index/home/tea");
-Route::get("mm","index/home/mm");
 
 
 

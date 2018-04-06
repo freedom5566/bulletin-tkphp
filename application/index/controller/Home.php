@@ -48,18 +48,18 @@ class Home extends Controller
         if($request->param()??0)
         {
             $data=[
-                "title"=>$request->post('title'),
+                "title"=>$request->post("title"),
                 "article"=>$request->post("message")
             ];
             $res=(new \service\Dbsql())->sql_update("bulletin","author",$request->post("author"),$data);
          
             if($res??0)
             {
-                $this->success("新增成功","http://127.0.0.1:8080/update");
+                $this->success("修改成功","http://127.0.0.1:8080/update");
             }
             else
             {
-                $this->error("新增失敗！！");
+                $this->error("修改失敗！！");
             }
         }
         else
@@ -67,42 +67,36 @@ class Home extends Controller
             $this->redirect("http://127.0.0.1:8080/update",404);            
         }
     }
-    public function test()
+    public function delete()
     {
-        // $data = ['id'=>1,'user' => '清潔', 'message' => 'xd','date'=>'2018-03-08'];
-        // Db::name('messages')->insert($data);
-        $data=Db::table('messages')->where('id',1)->find();
-        return $data["id"];
+        return $this->fetch("/delete");
     }
-    public function hh()
+    public function deletereq(Request $request)
     {
-        $data=Db::table("bulletin")->where("author","123")->find();
-        $this->assign([
-            'name'  => $data["author"],
-            'email' => 'thinkphp@qq.com'
-        ]);
-        return $this->fetch("/home");
-
+        if($request->param()??0)
+        {
+            $data=[
+                "title"=>$request->post("title"),
+                "author"=>$request->post("author")
+            ];
+            $res=(new \service\Dbsql())->sql_deletearray("bulletin",[
+                ["title","=",$data["title"]],
+                ["author","=",$data["author"]]
+                ]);
+         
+            if($res??0)
+            {
+                $this->success("刪除成功","http://127.0.0.1:8080/delete");
+            }
+            else
+            {
+                $this->error("刪除失敗！！");
+            }
+        }
+        else
+        {
+            $this->redirect("http://127.0.0.1:8080/delete",404);            
+        }
     }
-    public function Tea()
-    {
-        $Test= (new \service\Dbsql())->sql_find("bulletin","id",5);
-        // $data=[
-        //     "title"=>123,
-        //     "author"=>123,
-        //     "article"=>5566
-        // ];
-        //$data=$Test->sql_find("bulletin","id",2);
-        //$data=$Test->sql_insert("bulletin",$data);
-        if($Test) return $Test["author"];
-        else return "哎呀甚麼也沒有咧~~";
-        
-    }
-    public function mm()
-    {
-        $test=new Bulletin();
-        $tss=$test::where('id', 2)->find();
-        //$test->author="124";
-        print_r($tss->author);
-    }
+    
 }

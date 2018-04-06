@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>刪除公告</title>
+</head>
+
+<body>
+    <div>
+        {include file="menu"/}
+        <h1>
+            <center>刪除公告</center>
+        </h1>
+        <div>
+            <form method="POST" action="index/home/deletereq" onsubmit="return validateForm()">
+                <center>請輸入要刪除的標題:
+                    <br/>
+                    <br/>
+                    <input name="title" id="title" placeholder="輸入要刪除的標題">
+                </center>
+                <center>請輸入要刪除的標題作者:
+                    <br/>
+                    <br/>
+                    <input name="author" placeholder="輸入要刪除的標題作者" required>
+                </center>
+
+                <center>
+                    <button type="submit" value="Submit">送出</button>
+                    <button type="reset" value="Reset">清除</button>
+
+                </center>
+            </form>
+
+
+        </div>
+    </div>
+</body>
+<script>
+    function validateForm() {
+
+        if (document.getElementById("title").value === "") {
+            alert("請輸入標題");
+            return false;
+        }
+    };
+</script>
+
+</html>
