@@ -174,4 +174,5 @@ RUN sed -i 's/http\:\/\/dl-cdn.alpinelinux.org/https\:\/\/ftp.yzu.edu.tw\/Linux/
 ~ /rebuild $ docker-compose down 
 ~ /rebuild $ docker volume prune
 ```
-關閉docker-compose並且清掉volume(資料庫)
+關閉docker-compose並且清掉volume(資料庫)        
+P.S:這邊所用的docker-compose並不會保留資料
