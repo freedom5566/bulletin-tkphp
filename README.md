@@ -73,6 +73,8 @@ thinkphp5.1 要求
     PDO PHP Extension       
     MBstring PHP Extension      
 
+先新增兩個dump、tkphp資料夾，等等會用到   
+接著新增docker-compose.yml  
 ```sh
 ~ $ mkdir rebuild && cd rebuild 
 ~ /rebuild $ mkdir dump tkphp
@@ -114,6 +116,7 @@ yml需要注意空格，可以用config指令檢查
 正確返回docker-compose內容，否則返回格式錯誤
 
 
+新增dump.sql檔案        
 ```sh
 ~ /rebuild $ vim dump/dump.sql
 ```
@@ -129,8 +132,10 @@ CREATE TABLE `HelloTest`.`bulletin`
   `title` VARCHAR(10) NOT NULL , 
   PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ```
-`:wq`存檔
+`:wq`存檔       
 
+
+新增Dockerfile檔案
 ```sh
 ~ /rebuild $ vim tkphp/Dockerfile
 ```
