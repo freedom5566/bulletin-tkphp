@@ -20,8 +20,9 @@
 
 controller:放了`Home.php`(主要功能所在controller)、`Index.php`(用來確認目錄正確的頁面)      
 model:model   
-service:輔助controller用
-view:CRUD4個html加上一個共用的`menu.html`    config:有改動的是`app.php`(主要是debug用)、`database.php`(資料庫連線用)        
+service:輔助controller用        
+view:CRUD4個html加上一個共用的`menu.html`           
+config:有改動的是`app.php`(主要是debug用)、`database.php`(資料庫連線用)        
 public:放了css、js      
 route:CRUD4個頁面的路由
 ```php
@@ -115,7 +116,12 @@ networks:
 
 CREATE DATABASE `HelloTest` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-CREATE TABLE `HelloTest`.`bulletin` ( `id` INT(10) NOT NULL AUTO_INCREMENT , `article` VARCHAR(100) NOT NULL , `author` VARCHAR(10) NOT NULL , `title` VARCHAR(10) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `HelloTest`.`bulletin` 
+( `id` INT(10) NOT NULL AUTO_INCREMENT ,
+  `article` VARCHAR(100) NOT NULL ,
+  `author` VARCHAR(10) NOT NULL ,
+  `title` VARCHAR(10) NOT NULL , 
+  PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ```
 `:wq`存檔
 
