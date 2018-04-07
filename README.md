@@ -106,7 +106,13 @@ services:
 networks:
     my_network:
 ```
-`:wq`存檔
+`:wq`存檔       
+yml需要注意空格，可以用config指令檢查
+```sh
+~ /rebuild $ docker-compose config
+```
+正確返回docker-compose內容，否則返回格式錯誤
+
 
 ```sh
 ~ /rebuild $ vim dump/dump.sql
