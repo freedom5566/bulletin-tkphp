@@ -4,12 +4,13 @@ namespace app\index\controller;
 use think\Controller;
 use think\Request;
 use app\index\model\Bulletin;
+use app\index\service\Dbsql;
 
 class Home extends Controller
 {
     public function select()
     {
-        $res=(new \service\Dbsql())->sql_selectall("bulletin");
+        $res=(new Dbsql())->sql_selectall("bulletin");
         if($res??0)
         {
             $this->assign("data",$res);
@@ -37,7 +38,7 @@ class Home extends Controller
                 "author"=>$request->post("author"),
                 "article"=>$request->post("message")
             ];
-            $res=(new \service\Dbsql())->sql_insert("bulletin",$data);
+            $res=(new Dbsql())->sql_insert("bulletin",$data);
             if($res??0)
             {
                 $this->success("新增成功","http://127.0.0.1:8080/insert");
@@ -65,7 +66,7 @@ class Home extends Controller
                 "title"=>$request->post("title"),
                 "article"=>$request->post("message")
             ];
-            $res=(new \service\Dbsql())->sql_update("bulletin","author",$request->post("author"),$data);
+            $res=(new Dbsql())->sql_update("bulletin","author",$request->post("author"),$data);
          
             if($res??0)
             {
@@ -93,7 +94,7 @@ class Home extends Controller
                 "title"=>$request->post("title"),
                 "author"=>$request->post("author")
             ];
-            $res=(new \service\Dbsql())->sql_deletearray("bulletin",[
+            $res=(new Dbsql())->sql_deletearray("bulletin",[
                 ["title","=",$data["title"]],
                 ["author","=",$data["author"]]
                 ]);

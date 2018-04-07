@@ -1,6 +1,6 @@
 <?php
 
-namespace service;
+namespace app\index\service;
 
 use think\Db;
 
