@@ -52,9 +52,6 @@ port設定8080(要改掉也行)
 
 訪問127.0.0.1:8080應該會出現        
 ![圖片不見了，請開issuse告知](https://github.com/freedom5566/friendly-PHP/blob/master/images/thphp5/start.png "成功圖")     
-如果出現        
-![圖片不見了，請開issuse告知](https://github.com/freedom5566/friendly-PHP/blob/master/images/thphp5/error.png "成功圖")     
-這表示server設定目錄不對
 
 成功後可以訪問      
 127.0.0.1:8080/select       
@@ -62,7 +59,13 @@ port設定8080(要改掉也行)
 127.0.0.1:8080/update       
 127.0.0.1:8080/delete       
 
-可以看到對應的查訊新增修改刪除
+可以看到對應的查訊新增修改刪除      
+
+如果出現        
+![圖片不見了，請開issuse告知](https://github.com/freedom5566/friendly-PHP/blob/master/images/thphp5/error.png "成功圖")     
+這表示server設定目錄不對
+
+
 ***
 # docker-compose方便快速的重建方法
 [原始碼](https://github.com/freedom5566/ubiquitous-docker/tree/master/docker-compose/rebuild_php%2Bmariadb "github")
